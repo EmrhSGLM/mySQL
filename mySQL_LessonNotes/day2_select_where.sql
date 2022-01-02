@@ -19,7 +19,8 @@ INSERT INTO ogrenciler VALUES(125, 'Kemal Yasa', 'Istanbul',85);
     SELECT ile birlikte WHERE komutu kullanılabilir.
     SELECT sutün1, sutün2
         ...
-    FROM  tablo_adı WHERE koşul;
+    FROM  tablo_adı WHER
+    E koşul;
 ==============================================================================*/
 
 /*-----------------------------------------------------------------------------
@@ -226,6 +227,7 @@ where isim like 'a_____a%';
     INSERT INTO kelimeler VALUES (1013, 'hoot', 4);
     INSERT INTO kelimeler VALUES (1014, 'haaat', 5);
     INSERT INTO kelimeler VALUES (1015, 'hooooooooot', 5);
+    INSERT INTO kelimeler VALUES (1022, 'hato', 4);
     
     -- DROP TABLE kelimeler;
     
@@ -276,7 +278,7 @@ where REGEXP_LIKE(kelime, 't$|m$');
 where kelime like 'h_t';  
 
 select * from kelimeler
-where REGEXP_LIKE(kelime, 'h[a-zA-Z0-9]t', 'c'); -- a-zA-Z0-9 -> ikinci harf buyuk,kucuk,rakam olabilir
+where REGEXP_LIKE(kelime, '^h[a-zA-Z0-9]t$', 'c'); -- a-zA-Z0-9 -> ikinci harf buyuk,kucuk,rakam olabilir
  -- [] -> bir karakter demek    
 /* -----------------------------------------------------------------------------
   ORNEK27: İlk harfi h, son harfi t olup 2.harfi a veya i olan 3 harfli 
