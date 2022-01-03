@@ -67,7 +67,7 @@ select * from calisanlar;
   Bunun için FK olan satırın en sonuna ON DELETE CASCADE komutunu yazmak yeterli
   
 ==============================================================================*/
-    
+    use sys;
     CREATE TABLE talebeler
     (
         id CHAR(3) primary key,  
@@ -100,7 +100,16 @@ select * from calisanlar;
     INSERT INTO notlar VALUES ('125', 'tarih',90);
     INSERT INTO notlar VALUES ('126', 'Matematik',90);
     
-    drop table talebeler;
+    delete from notlar where talebe_id='124'; -- parent dan silince child class 
+											  -- da ki ayni id sahip child da silinir
+    delete from talebeler where id='124';
+    
+    -- FK ile birleştirilen tablolardaki tüm verileri çekmek için 
+    -- JOIN İşlemi yapmak gerekir. Bu konuyu sonra göreceğiz.
+    select * from talebeler,notlar where talebeler.id=notlar.talebe_id;
+    
+    select * from talebeler;
+    select * from notlar;
     
     
     
