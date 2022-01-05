@@ -45,19 +45,32 @@ use sys;
   ORNEK3: personel tablosundan sirket sutununu siliniz. 
 ------------------------------------------------------------------------------*/ 
 alter table personel
-DROP sirket; -- SUTUN SİLİNECEKSE YANİ ANA YAPİDA BİR DEGİSİKLİK YAPİLACAKSA DROP KULLANILIR
+drop column sirket; -- SUTUN SİLİNECEKSE YANİ ANA YAPİDA BİR DEGİSİKLİK YAPİLACAKSA DROP KULLANILIR
 
 /* -----------------------------------------------------------------------------
   ORNEK4: personel tablosundaki ulke_isim sutununun adini ulke_adi olarak 
   degistiriniz. 
-------------------------------------------------------------------------------*/  
+------------------------------------------------------------------------------*/ 
+alter table personel
+rename column ulke_isim to ulke_adi;
  
     
 /* -----------------------------------------------------------------------------
   ORNEK5: personel tablosunun adini isciler olarak degistiriniz. 
 ------------------------------------------------------------------------------*/  
-  
+alter table personel
+rename to isciler;
+  select * from personel; -- isim degisikligi yapidigi icin hata verir
+  select * from isciler;
 /* -----------------------------------------------------------------------------
   ORNEK6: isciler tablosundaki ulke_adi sutununa NOT NULL kisitlamasi ekleyiniz
   ve veri tipini VARCHAR(30) olarak değiştiriniz. 
 ------------------------------------------------------------------------------*/ 
+
+alter table isciler
+modify ulke_adi varchar(30) not null; -- modify ==> ile olan bir seyde yeni bir degisiklik yaptik
+
+
+
+
+
