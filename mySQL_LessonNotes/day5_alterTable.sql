@@ -72,7 +72,7 @@ modify ulke_adi varchar(30) not null; -- modify ==> ile olan bir seyde yeni bir 
 
 -- ======================================
 -- maas limit kisitlama ekle
-alter table isciler add constraint check (maas >= 3500);
+alter table isciler add constraint check (maas > 3499);
 	-- Maas alt limit kisitlama atadik
     -- kisitlama atadiktan sonra maasin 3500 altinda olmasi sebebiyle
     -- alttaki veriyi giremeyiz
