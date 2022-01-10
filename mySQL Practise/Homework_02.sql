@@ -48,10 +48,14 @@ where  calisanlar.maas < (select AVG(maas) from (select maas from calisanlar) as
 3-) Çalışanların isim ve cocuk_sayisi'ni listeleyen bir sorgu yazınız. Komut
 sonrası görünüm aşağıdaki gibidir.
 =================================================================================*/
-
+-- 1.Yol
 select isim, (select cocuk_sayisi from aileler 
 				where calisanlar.id=aileler.id) as cocuk_sayisi
 from calisanlar;
+-- 2.Yol
+select c.isim,a.cocuk_sayisi
+from calisanlar as c, aileler as a
+where c.id=a.id;
 
 /*=============================================================================
 4-) calisanlar' ın id, isim ve toplam_gelir'lerini gösteren bir sorgu yazınız.
@@ -72,3 +76,4 @@ where (calisanlar.maas +
 ((select cocuk_sayisi from aileler where calisanlar.id=aileler.id)+2) < 2000;
 
 select * from calisanlar;
+
